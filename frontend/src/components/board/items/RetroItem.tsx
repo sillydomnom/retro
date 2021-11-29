@@ -93,6 +93,9 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.primary.main,
     textDecoration: "none",
   },
+  discussedLabel: {
+    marginLeft: theme.spacing(1),
+  },
 }));
 
 function RetroItem(props: RetroItemProps) {
@@ -136,7 +139,7 @@ function RetroItem(props: RetroItemProps) {
   }
 
   function openDetail() {
-    openRetroItemDetailDialog(id, userState.name, author, content);
+    openRetroItemDetailDialog(id, userState.name, author);
   }
 
   function handleFocus(event: KeyboardEvent) {
@@ -233,7 +236,12 @@ function RetroItem(props: RetroItemProps) {
                   </Badge>
                 </IconButton>
                 {isDiscussed ? (
-                  <Chip label={"Discussed"} variant="outlined" size={"small"} />
+                  <Chip
+                    label={"Discussed"}
+                    variant="outlined"
+                    size={"small"}
+                    className={classes.discussedLabel}
+                  />
                 ) : null}
               </div>
               <div>
